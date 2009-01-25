@@ -1,0 +1,5 @@
+- if current_user.admin?
+  %p#role_id
+    %label{:for => "page_role_id"} Owning Role:
+    %select{:id => "page_role_id", :name => "page[role_id]"}
+      = options_for_select(Role.find(:all, :order => 'role_name ASC').map{|role| [role.role_name, role.id]}.unshift(['—', '']), (@page.role.nil? ? '' : @page.role.id))

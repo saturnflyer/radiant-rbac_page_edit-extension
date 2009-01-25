@@ -1,0 +1,6 @@
+%td
+  - unless page.role.nil?
+    -if current_user.roles.include? page.role
+      = page.role.role_name
+    - else
+      %span{:style => "color: #999"}= page.role.role_name
