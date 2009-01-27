@@ -3,7 +3,7 @@ module PageControllerRoleExtensions
     base.class_eval {
       only_allow_access_to :new, :edit,
         :if => :user_is_in_page_role,
-        :denied_url => { :controller => 'page', :action => 'index' },
+        :denied_url => :back,
         :denied_message => "You aren't in an appropriate role for editing or adding children to that page."
 
       def user_is_in_page_role

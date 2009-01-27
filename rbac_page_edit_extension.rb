@@ -15,7 +15,7 @@ class RbacPageEditExtension < Radiant::Extension
       belongs_to :role
     }
     Role.class_eval {
-      has_many :pages
+      has_many :pages, :dependent => :nullify
     }
     Admin::PageController.send :include, PageControllerRoleExtensions
     admin.page.index.add :node, "page_role_td", :before => "status_column"
