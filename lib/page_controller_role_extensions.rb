@@ -24,7 +24,7 @@ module PageControllerRoleExtensions
       before_filter :disallow_role_change
       def disallow_role_change
         if params[:page] && !current_user.admin?
-          params[:page].delete(:role_id)
+          params[:page].delete('role_id')
         end
       end
     }
