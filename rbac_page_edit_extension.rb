@@ -17,10 +17,10 @@ class RbacPageEditExtension < Radiant::Extension
     Role.class_eval {
       has_many :pages, :dependent => :nullify
     }
-    Admin::PageController.send :include, PageControllerRoleExtensions
-    admin.page.index.add :node, "page_role_td", :before => "status_column"
-    admin.page.index.add :sitemap_head, "page_role_th", :before => "status_column_header"
-    admin.page.edit.add :parts_bottom, "page_role", :after => "edit_timestamp"
+    Admin::PagesController.send :include, PagesControllerRoleExtensions
+    admin.pages.index.add :node, "page_role_td", :before => "status_column"
+    admin.pages.index.add :sitemap_head, "page_role_th", :before => "status_column_header"
+    admin.pages.edit.add :parts_bottom, "page_role", :after => "edit_timestamp"
   end
   
   def deactivate
