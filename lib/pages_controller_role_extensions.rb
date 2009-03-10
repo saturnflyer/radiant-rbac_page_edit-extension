@@ -1,4 +1,4 @@
-module PageControllerRoleExtensions
+module PagesControllerRoleExtensions
   def self.included(base)
     base.class_eval {
       only_allow_access_to :new, :edit,
